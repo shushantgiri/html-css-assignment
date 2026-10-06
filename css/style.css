@@ -1,0 +1,282 @@
+/* =========================================
+   HTML & CSS Practical Assignment
+   Navigation Bar and Responsive Card Layout
+   ========================================= */
+
+
+/* ---------- 1. Basic Reset ---------- */
+/* Removes default browser margin/padding and makes
+   width include padding and border (box model) */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: Arial, Helvetica, sans-serif;
+    font-size: 16px;
+    line-height: 1.6;
+    color: #333333;
+    background-color: #f4f6f8;
+}
+
+
+/* ---------- 2. Header and Navigation Bar ---------- */
+.site-header {
+    background-color: #1f3a5f;
+}
+
+.navbar {
+    max-width: 1100px;
+    margin: 0 auto;
+    padding: 15px 20px;
+
+    /* Flexbox puts the logo and links in one row */
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.logo {
+    font-size: 24px;
+    font-weight: bold;
+    color: #ffffff;
+    text-decoration: none;
+}
+
+.logo span {
+    color: #f4b942;
+}
+
+.nav-links {
+    list-style: none;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+
+.nav-links a {
+    display: block;
+    padding: 8px 14px;
+    color: #ffffff;
+    text-decoration: none;
+    font-size: 15px;
+    border-radius: 4px;
+}
+
+/* Hover effect for nav links */
+.nav-links a:hover,
+.nav-links a.active {
+    background-color: #2e5786;
+}
+
+/* Extra "Enroll Now" item styled like a button */
+.nav-links .nav-button {
+    border: 2px solid #f4b942;
+    color: #f4b942;
+}
+
+.nav-links .nav-button:hover {
+    background-color: #f4b942;
+    color: #1f3a5f;
+}
+
+
+/* ---------- 3. Intro Section ---------- */
+.intro {
+    max-width: 800px;
+    margin: 0 auto;
+    padding: 50px 20px 30px;
+    text-align: center;
+}
+
+.intro h1 {
+    font-size: 34px;
+    color: #1f3a5f;
+    margin-bottom: 12px;
+}
+
+.intro p {
+    font-size: 17px;
+    color: #555555;
+}
+
+
+/* ---------- 4. Section Titles ---------- */
+.section-title {
+    font-size: 26px;
+    color: #1f3a5f;
+    text-align: center;
+    margin-bottom: 25px;
+}
+
+
+/* ---------- 5. Card Layout (CSS Grid) ---------- */
+.courses {
+    max-width: 1100px;
+    margin: 0 auto;
+    padding: 20px 20px 50px;
+}
+
+.card-container {
+    display: grid;
+    grid-template-columns: 33.33% 33.33% 33.33%;
+    /* Desktop: 3 cards per row */
+    gap: 25px;
+}
+
+
+/* ---------- 6. Card Design ---------- */
+.card {
+    background-color: #ffffff;
+    border: 1px solid #e0e0e0;
+    border-radius: 8px;
+    overflow: hidden;
+    /* keeps the image inside the rounded corners */
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.08);
+
+    /* Flexbox column so the button can stay at the bottom */
+    display: flex;
+    flex-direction: column;
+
+    transition: transform 0.3s, box-shadow 0.3s;
+}
+
+/* Card hover effect: card moves up a little and the shadow gets bigger */
+.card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.15);
+}
+
+.card-image {
+    width: 100%;
+    height: 180px;
+    object-fit: cover;
+    /* image fills the area without stretching */
+    display: block;
+}
+
+.card-content {
+    padding: 20px;
+    display: flex;
+    flex-direction: column;
+    flex-grow: 1;
+    /* fills the remaining height of the card */
+}
+
+.card-tag {
+    align-self: flex-start;
+    background-color: #e8eef6;
+    color: #1f3a5f;
+    font-size: 12px;
+    font-weight: bold;
+    padding: 3px 10px;
+    border-radius: 12px;
+    margin-bottom: 10px;
+}
+
+.card-title {
+    font-size: 20px;
+    color: #1f3a5f;
+    margin-bottom: 8px;
+}
+
+.card-text {
+    font-size: 15px;
+    color: #555555;
+    margin-bottom: 12px;
+}
+
+.card-info {
+    font-size: 14px;
+    color: #777777;
+    margin-bottom: 18px;
+}
+
+.card-button {
+    margin-top: auto;
+    display: inline-block;
+    text-align: center;
+    padding: 10px;
+    background-color: #1f3a5f;
+    color: #ffffff;
+    text-decoration: none;
+    border-radius: 5px;
+    transition: background-color 0.3s;
+}
+
+.card-button:hover {
+    background-color: #f4b942;
+    color: #1f3a5f;
+}
+
+
+/* ---------- 7. About Section ---------- */
+.about {
+    max-width: 800px;
+    margin: 0 auto;
+    padding: 20px 20px 50px;
+    text-align: center;
+    color: #555555;
+}
+
+
+/* ---------- 8. Footer ---------- */
+.site-footer {
+    background-color: #1f3a5f;
+    color: #ffffff;
+    text-align: center;
+    padding: 25px 20px;
+    font-size: 14px;
+}
+
+.site-footer p {
+    margin: 4px 0;
+}
+
+.site-footer .copyright {
+    color: #b8c7da;
+    margin-top: 10px;
+}
+
+
+/* ---------- 9. Responsive Design ---------- */
+
+/* Tablet: 2 cards per row */
+@media (max-width: 900px) {
+    .card-container {
+        grid-template-columns: 50% 50%;
+    }
+}
+
+/* Mobile: 1 card per row and navbar stacks */
+@media (max-width: 600px) {
+    .navbar {
+        flex-direction: column;
+        gap: 10px;
+    }
+
+    .nav-links {
+        flex-wrap: wrap;
+        justify-content: center;
+        gap: 5px;
+    }
+
+    .nav-links a {
+        padding: 6px 10px;
+        font-size: 14px;
+    }
+
+    .intro h1 {
+        font-size: 26px;
+    }
+
+    .intro p {
+        font-size: 16px;
+    }
+
+    .card-container {
+        grid-template-columns: 100%;
+    }
+}
